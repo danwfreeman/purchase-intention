@@ -24,10 +24,10 @@ Note: The feature metrics relate to user behavior, such as time on a page, page 
 **Model Selection:**
 
 - The model is a classification model because the target variable 'Revenue' is binary (purchased or not purchased).
-- There are a number of categorical features that will be converted using One Hot Encoding (Month, OperatingSystems, Browser, Region, TrafficType, and VisitorType)
-- The other features are continuous and will need to be scaled so that models (specifically Logistic Regression) do not give too much weight to larger values (page counts, page durations, bounce rate, exit rate, page value, and special day score). For example, a duration of ~1500 compared to a bounce rate of ~0.05 shows huge discrepancies
+- There are a number of categorical features that will be converted using One Hot Encoding (_Month, OperatingSystems, Browser, Region, TrafficType, and VisitorType_)
+- The other features are continuous and will need to be scaled so that models (specifically for Logistic Regression) do not give too much weight to larger values (_page counts, page durations, bounce rate, exit rate, page value, and special day score_). For example, a duration of ~1500 compared to a bounce rate of ~0.05 would show large discrepancies.
 
-_Logistic Regression_ will provide a logical choice for a baseline model.  It works well for this binary classification model.  It can show which features are associated with a higher/lower probability of a purchase
+_Logistic Regression_ will provide a logical choice for a baseline model.  It works well for this binary classification model.  It can show which features are associated with a higher/lower probability of a purchase.
 
 _Decision Trees_ will be interesting to compare with Logistic Regression, a decision tree can show how feature combinations result in a purchase or non-purchase.  Seeing this visually in a tree diagram will make it easy to interpret.
 
@@ -40,7 +40,7 @@ Model performance will be evaluated using a confusion matrix, accuracy, precisio
 **Data Leakage:**
 - The feature "PageValues" is a 'weighted score' and is derived once the user's session has converted, therefore it is a strong candidate for data leakage. The models should be run with and without this feature and the accuracy, precision, recall, and F1-score should be compared.
 
-**Appendeix - Feature Glossary:**
+**Appendix - Feature Glossary:**
 - *Administrative*: The number of administrative-type pages visited during the session, such as account, login, order status, or help-related pages.
 - *Administrative Duration*: The total amount of time the visitor spent on administrative pages during the session.
 - *Informational*: The number of informational pages visited during the session, such as policy, company information, shipping information, or general content pages.
